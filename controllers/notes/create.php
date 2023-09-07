@@ -1,13 +1,12 @@
 <?php
-require "Validator.php";
-$heading = "Create Note";
+require base_path("Validator.php");
+$errors = [];
 
-$config = require('config.php');
+$config = require base_path('config.php');
 $db = new Database($config['database']);
 
 if($_SERVER['REQUEST_METHOD']=== 'POST')
 {
-    $errors = [];
     if(! Validator::string($_POST['title'], 1, 100)){
         $errors['title'] = 'A title of no more than 100 words is required';
     }
@@ -23,4 +22,7 @@ if($_SERVER['REQUEST_METHOD']=== 'POST')
     }
 }
 
-require "views/note-create.view.php";
+view('/notes/create.view.php', [
+    'heading' => "Create Note",
+    'errors' => $errors
+]);

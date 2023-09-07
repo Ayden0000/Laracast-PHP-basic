@@ -1,5 +1,6 @@
-<?php require "partials/header.php"; ?>
-<?php require "partials/nav.php"; ?>
+<?php require base_path('views/partials/header.php'); ?>
+<?php require base_path('views/partials/nav.php'); ?>
+
 
     <style>
         main{
@@ -15,4 +16,4 @@
         </div>
     </main>
 
-<?php require "partials/footer.php"; ?>
+<?php require base_path('views/partials/footer.php'); ?>

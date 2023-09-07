@@ -1,9 +1,9 @@
 <?php
 
-require "Response.php";
+require base_path("Response.php");
 $heading = "Note";
 
-$config = require('config.php');
+$config = require base_path('config.php');
 $db = new Database($config['database']);
 
 $id = $_GET['id'];
@@ -13,4 +13,7 @@ $note = $db->query('SELECT * FROM `posts` WHERE id= :id', ['id' => $id])->findOr
 
 authorize($note['user_id'] === $currentId);
 
-require "views/note.view.php";
+view('/notes/index.view.php', [
+    'heading' => "Note",
+    'note' => $note
+]);
