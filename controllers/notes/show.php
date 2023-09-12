@@ -1,14 +1,16 @@
 <?php
 
-
-
-
 $config = require base_path('config.php');
 $db = new Database($config['database']);
 
-$notes = $db->query('SELECT * FROM `posts` WHERE user_id=1')->get();
+$id = $_GET['id'];
+$currentId = 1;
+
+$note = $db->query('SELECT * FROM `posts` WHERE id= :id', ['id' => $id])->findOrFail();
+
+authorize($note['user_id'] === $currentId);
 
 view('/notes/show.view.php', [
-    'heading' => "My Notes",
-    'notes' => $notes
+    'heading' => "Note",
+    'note' => $note
 ]);

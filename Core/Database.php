@@ -32,7 +32,7 @@ class Database
         $result = $this->find();
 
         if(! $result){
-            aborta();
+            abort();
         }
         return $result;
     }

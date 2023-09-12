@@ -2,7 +2,7 @@
 <html lang="en" class ="h-full bg-grey-100">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>PuciTalky</title>
     <script src="http://cdn.tailwindcss.com?plugin=forms"></script>
 </head>
 <body class="h-full">

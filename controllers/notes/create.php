@@ -1,9 +1,8 @@
 <?php
-require base_path("Validator.php");
-$errors = [];
 
 $config = require base_path('config.php');
 $db = new Database($config['database']);
+$errors = [];
 
 if($_SERVER['REQUEST_METHOD']=== 'POST')
 {
